@@ -26,7 +26,7 @@ def run_query(query):
         conn.close()
 
 # Streamlit UI
-st.title("RETAIL ORDER SALES ANALYSIS")
+st.title("RETAIL ORDER DATA ANALYSIS")
 
 #Required questions split into two types
 
