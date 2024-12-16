@@ -1,1 +1,42 @@
+-- 1.find the top 10 highest revenue-generating products
+select r2.product_id,sum(r2.sale_price * r2.quantity) as total_revenue
+from retail2 r2 join retail1 r1 on r2.order_id = r1.order_id 
+group by r2.product_id order by total_revenue desc limit 10;
+
+--2.Find the top 5 cities with the highest profit margins
+select r1.city, avg((r2.profit / r2.sale_price) * 100) as avg_profit_margin
+from retail1 r1 join retail2 r2 on r1.order_id = r2.order_id where  r2.sale_price > 0  -- Avoid division by zero
+group by r1.city order by avg_profit_margin desc limit 5;
+
+--3.Calculate the total discount given for each category
+select r1.category,sum(r2.discount) as total_discount from retail1 r1 join retail2 r2 on r1.order_id=r2.order_id
+group by r1.category order by total_discount desc;
+
+--4.Find the average sale price per product category
+select r1.category,avg(r2.sale_price) as avg_sale_price from retail1 r1 join retail2 r2 
+on r1.order_id=r2.order_id group by r1.category;
+
+--5. Find the region with the highest average sale price
+select r1.region,avg(r2.sale_price) as highest_avg_sale_price from retail1 r1 join retail2 r2 on r1.order_id = r2.order_id
+group by r1.region order by highest_avg_sale_price desc limit 1;
+
+--6. Find the total profit per category
+select r1.category,sum(r2.profit) as total_profit from retail1 r1 join retail2 r2 on r1.order_id=r2.order_id
+group by r1.category order by total_profit desc;
+
+--7. Identify the top 3 segments with the highest quantity of orders
+select r1.segment,max(r2.quantity) as highest_quantity from retail1 r1 join retail2 r2 on r1.order_id=r2.order_id
+group by r1.segment order by highest_quantity desc limit 3;
+
+--8. Determine the average discount percentage given per region
+select r1.region,avg(r2.discount_percent) as avg_discount_percentage from retail1 r1 join retail2 r2  
+on r1.order_id=r2.order_id group by r1.region order by avg_discount_percentage desc;
+
+--9.Find the product category with the highest total profit
+select r1.category,sum(r2.profit) as total_profit from retail1 r1 join retail2 r2 on r1.order_id=r2.order_id
+group by r1.category order by total_profit desc limit 1;
+
+--10.Calculate the total revenue generated per year
+select extract(year from r1.order_date) as year, sum(r2.sale_price * r2.quantity) as total_revenue
+from retail1 r1 join retail2 r2 on r1.order_id = r2.order_id group by year order by year;
 
