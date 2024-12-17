@@ -48,7 +48,7 @@ Query Categories:**
 
 **Python:** 
   
-  For query execution and data processing (pandas, psycopg2).
+  For query execution and data processing (pandas, psycopg2)
 
 
 
