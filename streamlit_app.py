@@ -32,7 +32,7 @@ st.title("RETAIL ORDER DATA ANALYSIS")
 
 GUVI_Provided_queries = {
     "Find the top 10 highest revenue-generating products": 
-        'select r2.product_id,sum(r2.sale_price * r2.quantity) as total_revenue from retail2 r2 join retail1 r1 on r2.order_id = r1.order_id group by r2.product_id order by total_revenue desc limit 10;',
+        'select r2.sub_category,sum(r2.sale_price * r2.quantity) as total_revenuefrom retail2 r2 group by r2.sub_category order by total_revenue desc limit 10;',
     "Find the top 5 cities with the highest profit margins": 
         'select r1.city, avg((r2.profit / r2.sale_price) * 100) as avg_profit_margin from retail1 r1 join retail2 r2 on r1.order_id = r2.order_id where  r2.sale_price > 0  group by r1.city order by avg_profit_margin desc limit 5;',
     "Calculate the total discount given for each category": 
