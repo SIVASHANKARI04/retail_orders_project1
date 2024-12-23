@@ -1,6 +1,7 @@
 PROJECT1:RETAIL ORDER SALES ANALYSIS
-LINK:https:https://retailordersproject1-knpxm86fw8k9rd2ihwxzrj.streamlit.app/
+
 link:https://super-space-system-69x6rq9wqx52x59q-8501.app.github.dev/
+
 **Retail Order Sales Analysis Dashboard**
 
   This project is a Streamlit-based web application designed for analyzing and visualizing retail sales data stored in a PostgreSQL database hosted on AWS. The application provides users with insights into sales, profits, discounts, and other key performance metrics through pre-defined and custom SQL queries.
